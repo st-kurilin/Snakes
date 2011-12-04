@@ -1,20 +1,25 @@
 package com.github.snakes
 
+import java.util.{TimerTask, Timer}
+
+
 /**
  * @author: Stanislav Kurilin
  */
 
 object HelloScala {
   def main(args: Array[String]) {
-    val game : Game = new Game()
+    val game: Game = new Game()
     game.init()
-    game.print()
-    game.turn()
-    game.print()
-    game.changeDirection(Down)
-    game.turn()
-    game.print()
-    game.turn()
-    game.print()
+    val guiClient: GuiClient = new GuiClient(game)
+    val timer = new Timer()
+    val performTurn = new TimerTask() {
+      override def run() {
+        game.turn()
+        guiClient.fireChange();
+      }
+    }
+    timer.scheduleAtFixedRate(performTurn, 10, 200)
+    guiClient.go()
   }
 }

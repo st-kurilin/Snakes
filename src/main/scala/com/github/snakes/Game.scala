@@ -15,7 +15,7 @@ class Game {
 
   var target: Tuple2[Int, Int] = null
 
-  var direction : Direction= Right
+  var direction: Direction = Right
 
   def init() {
     snake = List((4, 4), (3, 4), (2, 4))
