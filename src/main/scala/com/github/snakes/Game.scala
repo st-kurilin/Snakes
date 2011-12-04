@@ -1,7 +1,6 @@
 package com.github.snakes
 
 
-
 /**
  * @author: Stanislav Kurilin
  */
@@ -16,7 +15,7 @@ class Game {
 
   var target: Tuple2[Int, Int] = null
 
-  var direction = Right
+  var direction : Direction= Right
 
   def init() {
     snake = List((4, 4), (3, 4), (2, 4))
@@ -27,8 +26,8 @@ class Game {
     snake = newHead :: snake.dropRight(1);
   }
 
-  def changeDirection(newDirection : Direction){
-
+  def changeDirection(newDirection: Direction) {
+    if (!direction.isOpposite(newDirection)) direction = newDirection
   }
 
   def print() {

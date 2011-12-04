@@ -11,5 +11,10 @@ object HelloScala {
     game.print()
     game.turn()
     game.print()
+    game.changeDirection(Down)
+    game.turn()
+    game.print()
+    game.turn()
+    game.print()
   }
 }
