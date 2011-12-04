@@ -1,7 +1,7 @@
 package com.github.snakes
 
 
-import com.github.snakes.Direction._
+
 /**
  * @author: Stanislav Kurilin
  */
@@ -16,7 +16,7 @@ class Game {
 
   var target: Tuple2[Int, Int] = null
 
-  var direction = Direction.Right
+  var direction = Right
 
   def init() {
     snake = List((4, 4), (3, 4), (2, 4))
@@ -25,6 +25,10 @@ class Game {
   def turn() {
     val newHead = next(snake.head, direction);
     snake = newHead :: snake.dropRight(1);
+  }
+
+  def changeDirection(newDirection : Direction){
+
   }
 
   def print() {
@@ -40,7 +44,7 @@ class Game {
     }
   }
 
-  def next(current: Tuple2[Int, Int], Direction: Any) =
+  def next(current: Tuple2[Int, Int], direction: Any) =
     direction match {
       case Right => (current._1 + 1, current._2)
       case Left => (current._1 - 1, current._2)
@@ -48,3 +52,4 @@ class Game {
       case Down => (current._1, current._2 + 1)
     }
 }
+
